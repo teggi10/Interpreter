@@ -14,9 +14,11 @@ class EgipcianExpression implements Expression {
     @Override
     public String interpreter(int context) {
         int [] array = numberArrayConvert(context);
+        int arrayLength = array.length;
         String texto = "";
-        for (int i = 0; i < array.length; i++) {
-            texto = texto + multiplicarTexto(egipcios[i],array[i]);
+        for (int i = 0; i < arrayLength; i++) {
+            int posicionSimbolo = egipcios.length - arrayLength + i;
+            texto = texto + multiplicarTexto(egipcios[posicionSimbolo],array[i]);
         }
         return texto;
     }
@@ -27,7 +29,6 @@ class EgipcianExpression implements Expression {
         for (int i = 0; i < x; i++) {
             resultado.append(texto + " ");
         }
-        System.out.println(resultado.toString());
         return resultado.toString();
     }
 
@@ -41,10 +42,7 @@ class EgipcianExpression implements Expression {
         for (int digito : numeros) {
             System.out.print(digito + " ");
         }
-        System.out.println(numeros);
         return numeros;
     }
-  /*   public int interpret(Map<String, Integer> context) {
-        return left.interpret(context) * right.interpret(context);
-    } */
+
 }
