@@ -13,6 +13,7 @@ public class Main {
 
         // Evaluar la expresión
         String result = expression.interpreter(context);
+        System.out.println("-----------------------------");
         System.out.println("Resultado: " + result); 
     }
 }
